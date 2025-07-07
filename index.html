@@ -44,7 +44,7 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
     .nav-container {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -56,75 +56,59 @@
       font-weight: 600;
       color: var(--clr-primary);
     }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: var(--spacing);
-    }
-    .nav-links a {
-      font-weight: 500;
-      transition: color var(--transition);
-    }
+    .nav-links { list-style: none; display: flex; gap: var(--spacing); }
+    .nav-links a { font-weight: 500; transition: color var(--transition); }
 
     /* Hero Section */
     #hero {
       background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
       color: #fff;
       text-align: center;
-      padding: 8rem 1rem;
+      padding: 6rem 1rem;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     }
     #hero .hero-photo {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border: 5px solid #fff;
-      object-fit: cover;
-      margin-bottom: 1.5rem;
+      width: 180px; height: 180px;
+      border-radius: 50%; border: 5px solid #fff;
+      object-fit: cover; margin-bottom: 1.5rem;
       box-shadow: 0 6px 20px rgba(0,0,0,0.2);
       transition: transform var(--transition);
     }
     #hero .hero-photo:hover { transform: scale(1.05); }
-    #hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-    #hero p { font-size: 1.25rem; max-width: 650px; margin: 0 auto; }
+    #hero h1 { font-size: 2.75rem; margin-bottom: 0.5rem; }
+    #hero p { font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
 
-    /* Main Layout */
+    /* Main Layout - One Column */
     .container {
-      max-width: 1100px;
-      margin: -4rem auto 2rem;
+      max-width: 800px;
+      margin: -3rem auto 2rem;
       padding: 0 1rem;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 2rem;
     }
+    .container > section { margin-bottom: 2rem; }
 
-    /* Card
-    -------------------------------------------------- */
+    /* Cards */
     .card {
       background: var(--clr-card-bg);
       border-radius: var(--radius);
-      padding: 2rem;
+      padding: 1.5rem;
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
       transition: transform var(--transition), box-shadow var(--transition);
-      overflow: hidden;
     }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
 
     /* Section Titles */
     .section-title {
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       position: relative;
       display: inline-block;
     }
     .section-title::after {
       content: '';
       position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 3rem;
-      height: 4px;
+      left: 0; bottom: -6px;
+      width: 2.5rem; height: 3px;
       background: var(--clr-accent);
       border-radius: var(--radius);
     }
@@ -133,7 +117,7 @@
     .publications li { margin-bottom: 1rem; }
     .publications a:hover { color: var(--clr-primary); }
 
-    /* Contact Card */
+    /* Contact */
     address { font-style: normal; line-height: 1.4; }
 
     /* Footer */
@@ -141,7 +125,7 @@
       background: var(--clr-primary);
       color: #fff;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1rem;
       font-size: 0.875rem;
     }
     footer a { color: #fff; }
@@ -168,25 +152,22 @@
   </section>
 
   <main class="container">
+    <!-- Working Papers -->
     <section id="WP" class="card">
       <h2 class="section-title">Working Papers</h2>
       <ul class="publications">
         <li>
-          <h3>Can Public Debt crowd in Private Investment?</h3>
-          <p><em>with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank">Christian Bayer</a></em></p>
+          <h3>Can Public Debt crowd in Private Investment? <em>with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank">Christian Bayer</a></em></h3>
           <p>
             <a href="#abstract1" onclick="toggleAbstract('abstract1')">Abstract</a> |
-            <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank">
-              DP 691 <i class="fa fa-external-link-alt"></i>
-            </a>
+            <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank">DP 691 <i class="fa fa-external-link-alt"></i></a>
           </p>
-          <div id="abstract1" style="display:none; margin-top:1rem;">
-            <p>If households self-select into a risky high-income state through investment, government debt can crowd in private investment and enhance welfare...</p>
-          </div>
+          <div id="abstract1" style="display:none; margin-top:1rem;"><p>If households self-select into a risky high-income state through investment, government debt can crowd in private investment and enhance welfare...</p></div>
         </li>
       </ul>
     </section>
 
+    <!-- Current Work -->
     <section id="Progress" class="card">
       <h2 class="section-title">Current Work</h2>
       <ul>
@@ -196,6 +177,7 @@
       </ul>
     </section>
 
+    <!-- Contact -->
     <section id="Contact" class="card">
       <h2 class="section-title">Contact</h2>
       <address>
@@ -218,7 +200,6 @@
       const el = document.getElementById(id);
       el.style.display = el.style.display === 'none' ? 'block' : 'none';
     }
-
     // Dynamic footer dates
     document.getElementById('year').textContent = new Date().getFullYear();
     const modDate = new Date(document.lastModified);

@@ -36,6 +36,19 @@
     a { color: var(--clr-accent); text-decoration: none; }
     a:hover, a:focus { text-decoration: underline; outline: none; }
 
+    /* Button */
+    .btn {
+      display: inline-block;
+      background: var(--clr-accent);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background var(--transition);
+      font-weight: 500;
+    }
+    .btn:hover { background: var(--clr-primary); }
+
     /* Subsection Titles */
     .subsection-title {
       font-size: 1.25rem;
@@ -66,9 +79,7 @@
       color: #fff;
       transition: color var(--transition);
     }
-    .social-links a:hover {
-      color: var(--clr-accent);
-    }
+    .social-links a:hover { color: var(--clr-accent); }
 
     /* Navbar */
     nav {
@@ -86,17 +97,8 @@
       align-items: center;
       padding: var(--spacing);
     }
-    .nav-logo {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--clr-primary);
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: var(--spacing);
-      margin: 0; padding: 0;
-    }
+    .nav-logo { font-size: 1.5rem; font-weight: 600; color: var(--clr-primary); }
+    .nav-links { list-style: none; display: flex; gap: var(--spacing); margin: 0; padding: 0; }
     .nav-links a { font-weight: 500; transition: color var(--transition); }
 
     /* Hero Section */
@@ -119,14 +121,10 @@
     #hero p { font-size: 1.25rem; max-width: 600px; margin: 0.5rem auto; }
     #hero .welcome { font-size: 1.125rem; margin-top: 1rem; opacity: 0.9; }
 
-    /* Main Layout - One Column */
-    .container {
-      max-width: 1000px;
-      margin: 1rem auto 2rem;
-      padding: 0 1rem;
-    }
+    /* Main Layout */
+    .container { max-width: 1000px; margin: 1rem auto 2rem; padding: 0 1rem; }
 
-    /* Cards */
+    /* Global Card Styling */
     .card {
       background: var(--clr-card-bg);
       border-radius: var(--radius);
@@ -138,22 +136,16 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
-    #Research:hover {
-      transform: none;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-    }
+    #Research:hover { transform: none; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
 
-    /* Subsection Grid & Tiles */
+    /* Research Grid & Tiles */
     .subsection-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: var(--spacing);
       margin-top: 1.5rem;
     }
-    /* Force single-column in Research section */
-    #Research .subsection-grid {
-      grid-template-columns: 1fr;
-    }
+    #Research .subsection-grid { grid-template-columns: 1fr; }
     .subsection-card {
       background: var(--clr-card-bg);
       border-radius: var(--radius);
@@ -185,10 +177,11 @@
 
     /* Publications List */
     .publications li { margin-bottom: 1rem; }
-    .publications a:hover,
-    .publications a:focus { color: var(--clr-primary); }
+    .publications a:hover, .publications a:focus { color: var(--clr-primary); }
 
-    /* Contact */
+    /* Contact & CV Width */
+    #Contact, #CV { max-width: calc(100% - 3rem); margin: 1rem auto 2rem; }
+
     address { font-style: normal; line-height: 1.4; }
 
     /* Footer */
@@ -204,13 +197,14 @@
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav aria-label="Main navigation">
     <div class="nav-container">
       <a href="#hero" class="nav-logo">Fabio Stohler</a>
       <ul class="nav-links">
         <li><a href="#Research">Research</a></li>
+        <li><a href="#CV">CV</a></li>
         <li><a href="#Contact">Contact</a></li>
-        <li><a href="/resume/CV_Fabio_Stohler.pdf" target="_blank" rel="noopener">CV <i class="fa fa-download" aria-hidden="true"></i><span class="sr-only">Download CV</span></a></li>
       </ul>
     </div>
   </nav>
@@ -232,6 +226,7 @@
     <section id="Research" class="card" aria-labelledby="research-title">
       <h2 id="research-title" class="section-title">Research</h2>
       <div class="subsection-grid">
+        <!-- Working Papers Card -->
         <div class="subsection-card">
           <h3 class="subsection-title">Working Papers</h3>
           <ul class="publications">
@@ -239,7 +234,7 @@
               <h4>Can Public Debt crowd in Private Investment?<span class="coauthors">with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank" rel="noopener">Christian Bayer</a></span></h4>
               <p>
                 <a href="#abstract1" onclick="toggleAbstract('abstract1'); return false;">Abstract</a> |
-                <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank" rel="noopener">DP 691 <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
+                <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank" rel="noopener">DP 691 <i class="fa fa-external-link-alt"></i></a>
               </p>
               <div id="abstract1" class="abstract" hidden>
                 <p>If households self-select into a risky high-income state through investment, increased government debt can stimulate investment and improve welfare. In a heterogeneous agent endogenous growth model, government debt helps households smooth consumption and encourages investment in risky, high-return assets, crowding in aggregate growth. However, when debt becomes excessive, capital crowding out and distortionary taxation negate these benefits. Using a model calibrated to U.S. data, we show that this crowding-in effect suggests a higher optimal debt-to-GDP ratio than currently observed.</p>
@@ -247,7 +242,7 @@
             </li>
           </ul>
         </div>
-
+        <!-- Ongoing Projects Card -->
         <div class="subsection-card">
           <h3 class="subsection-title">Ongoing Projects</h3>
           <ul class="publications">
@@ -277,8 +272,20 @@
       </div>
     </section>
 
+        <!-- CV -->
+    <section id="CV" class="subsection-card" aria-labelledby="cv-title">
+      <h2 id="cv-title" class="section-title">Curriculum Vitae</h2>
+      <address>
+        <a href="/resume/CV_Fabio_Stohler.pdf" class="btn" download>
+          <i class="fa fa-download" aria-hidden="true"></i>
+          Download CV
+        </a>
+      </address>
+    </section>
+
+
     <!-- Contact -->
-    <section id="Contact" class="card" aria-labelledby="contact-title">
+    <section id="Contact" class="subsection-card" aria-labelledby="contact-title">
       <h2 id="contact-title" class="section-title">Contact</h2>
       <address>
         Email: <span id="email"></span><br>

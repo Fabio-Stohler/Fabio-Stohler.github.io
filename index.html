@@ -6,318 +6,213 @@
   <title>Fabio Stohler – University of Bonn</title>
   <meta name="description" content="Ph.D. candidate in Economics at the University of Bonn. Research on macroeconomics, finance, and inequality.">
 
-  <!-- Google Font & Icons -->
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-  <!-- Global Styles -->
   <style>
-    :root {
-      --clr-bg: #ffffff;
-      --clr-text: #333333;
-      --clr-text-secondary: #555555;
-      --clr-primary: #2c3e50;
-      --clr-accent: #2980b9;
-      --clr-card-bg: #f7f9fa;
-      --radius: 0.75rem;
-      --transition: 0.3s ease;
-      --font-base: 'Inter', sans-serif;
-      --spacing: 1rem;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: var(--font-base);
-      background: var(--clr-bg);
-      color: var(--clr-text);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-    a { color: var(--clr-accent); text-decoration: none; }
-    a:hover, a:focus { text-decoration: underline; outline: none; }
-
-    /* Button */
-    .btn {
-      display: inline-block;
-      background: var(--clr-accent);
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius);
-      text-decoration: none;
-      transition: background var(--transition);
-      font-weight: 500;
-    }
-    .btn:hover { background: var(--clr-primary); }
-
-    /* Subsection Titles */
-    .subsection-title {
-      font-size: 1.25rem;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-      border-bottom: 2px solid var(--clr-card-bg);
-      padding-bottom: 0.25rem;
+    /* ---------- THEME ---------- */
+    :root{
+      --bg:#fff;
+      --text:#333;
+      --text-light:#555;
+      --primary:#2c3e50;
+      --accent:#2980b9;
+      --radius:.75rem;
+      --sp:1rem;
+      --font:'Inter',sans-serif;
+      --hover-shadow:0 8px 24px rgba(0,0,0,.08);
     }
 
-    /* Coauthors styling */
-    .coauthors {
-      display: block;
-      font-style: italic;
-      font-size: 0.9rem;
-      color: var(--clr-text-secondary);
-      margin-top: 0.25rem;
-    }
+    /* ---------- RESET ---------- */
+    *,::before,::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;scroll-behavior:smooth}
 
-    /* Social Links in Hero */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .social-links a {
-      font-size: 2.25rem; /* increased from 1.5rem to enlarge icon size */
-      color: #fff;
-      transition: color var(--transition);
-    }
-    .social-links a:hover { color: var(--clr-accent); }
+    a{color:var(--accent);text-decoration:none}
+    a:hover,a:focus{text-decoration:underline}
 
-    /* Navbar */
-    nav {
-      background: var(--clr-bg);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    }
-    .nav-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--spacing);
-    }
-    .nav-logo { font-size: 1.5rem; font-weight: 600; color: var(--clr-primary); }
-    .nav-links { list-style: none; display: flex; gap: var(--spacing); margin: 0; padding: 0; }
-    .nav-links a { font-weight: 500; transition: color var(--transition); }
+    /* ---------- LAYOUT ---------- */
+    .container{max-width:1000px;margin:auto;padding:0 var(--sp)}
+    .section{padding:3.5rem 0;border-bottom:1px solid #e5e5e5}
+    .section:last-of-type{border:none}
 
-    /* Hero Section */
-    #hero {
-      background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
-      color: #fff;
-      text-align: center;
-      padding: 6rem 1rem 8rem;
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-    }
-    #hero .hero-photo {
-      width: 240px; height: 240px;
-      border-radius: 50%; border: 5px solid #fff;
-      object-fit: cover; margin-bottom: 1.5rem;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      transition: transform var(--transition);
-    }
-    #hero .hero-photo:hover { transform: scale(1.05); }
-    #hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-    #hero p { font-size: 1.25rem; max-width: 600px; margin: 0.5rem auto; }
-    #hero .welcome { font-size: 1.125rem; margin-top: 1rem; opacity: 0.9; }
+    /* ---------- NAV ---------- */
+    nav{background:var(--bg);position:sticky;top:0;z-index:100;border-bottom:1px solid #eee}
+    nav .container{display:flex;justify-content:space-between;align-items:center;height:3.5rem}
+    .logo{font-weight:600;font-size:1.25rem;color:var(--primary)}
+    .nav-links{display:flex;gap:var(--sp);list-style:none}
+    .nav-links a{font-weight:500}
 
-    /* Main Layout */
-    .container { max-width: 1000px; margin: 1rem auto 2rem; padding: 0 1rem; }
+    /* ---------- HERO ---------- */
+    #hero{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;text-align:center;padding:5rem 1rem 6rem}
+    .hero-photo{width:200px;height:200px;border-radius:50%;border:4px solid #fff;object-fit:cover;margin-bottom:1rem}
+    .social{display:flex;justify-content:center;gap:1.25rem;margin-top:1.5rem}
+    .social a{font-size:2.25rem;color:#fff}            /* <— bigger icons */
+    .social a:hover{color:var(--bg)}
 
-    /* Global Card Styling */
-    .card {
-      background: var(--clr-card-bg);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .card:not(#Research):hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    }
-    #Research:hover { transform: none; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    /* ---------- TITLES ---------- */
+    h2.section-title{font-size:1.75rem;font-weight:600;margin-bottom:1rem;position:relative;display:inline-block}
+    h2.section-title::after{content:'';position:absolute;left:0;bottom:-4px;width:2.5rem;height:3px;background:var(--accent);border-radius:var(--radius)}
+    h3{font-size:1.125rem;margin:.5rem 0}
 
-    /* Research Grid & Tiles */
-    .subsection-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--spacing);
-      margin-top: 1.5rem;
+    /* ---------- TILE GRID ---------- */
+    .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--sp);margin-top:.75rem}
+    .tiles.one-col{grid-template-columns:1fr}
+    .tile{
+      background:var(--bg);
+      padding:1.25rem;
+      border-radius:var(--radius);
+      border:1px solid #e5e5e5;
+      box-shadow:0 2px 6px rgba(0,0,0,.05);
+      transition:transform .25s ease,box-shadow .25s ease;
     }
-    #Research .subsection-grid { grid-template-columns: 1fr; }
-    .subsection-card {
-      background: var(--clr-card-bg);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-      transition: transform var(--transition), box-shadow var(--transition);
+    .tile:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--hover-shadow);
     }
-    .subsection-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    }
+    .coauthors{display:block;font-style:italic;font-size:.9rem;color:var(--text-light);margin-top:.25rem}
 
-    /* Section Titles */
-    .section-title {
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      position: relative;
-      display: inline-block;
+    /* ---------- BUTTON ---------- */
+    .btn{display:inline-block;background:var(--accent);color:#fff;padding:.65rem 1.25rem;border-radius:var(--radius);font-weight:500}
+    .btn:hover{background:var(--primary)}
+
+    /* ---------- FOOTER ---------- */
+    footer{background:var(--primary);color:#fff;text-align:center;padding:1rem;font-size:.875rem}
+    footer a{color:#fff}
+
+    /* ---------- SMALL ---------- */
+    @media(max-width:600px){
+      #hero{padding:4rem 1rem 4.5rem}
+      .hero-photo{width:160px;height:160px}
+      nav .container{flex-direction:column;height:auto}
+      .nav-links{margin-top:.5rem}
     }
-    .section-title::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: -6px;
-      width: 2.5rem; height: 3px;
-      background: var(--clr-accent);
-      border-radius: var(--radius);
-    }
-
-    /* Publications List */
-    .publications li { margin-bottom: 1rem; }
-    .publications a:hover, .publications a:focus { color: var(--clr-primary); }
-
-    /* Contact & CV Width */
-    #Contact, #CV { max-width: calc(100% - 3rem); margin: 1rem auto 2rem; }
-
-    address { font-style: normal; line-height: 1.4; }
-
-    /* Footer */
-    footer {
-      background: var(--clr-primary);
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.875rem;
-    }
-    footer a { color: #fff; }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav aria-label="Main navigation">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">Fabio Stohler</a>
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <a href="#hero" class="logo">Fabio Stohler</a>
       <ul class="nav-links">
-        <li><a href="#Research">Research</a></li>
-        <li><a href="#CV">CV</a></li>
-        <li><a href="#Contact">Contact</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <section id="hero">
+  <!-- HERO -->
+  <header id="hero">
     <img src="images/photo.jpg" alt="Portrait of Fabio Stohler" class="hero-photo">
     <h1>Fabio Stohler</h1>
     <p>Ph.D. candidate in Economics, University of Bonn</p>
-    <p class="welcome">Welcome to my site! Explore my research on macroeconomics, finance, and inequality. Scroll down to see my latest projects.</p>
-    <div class="social-links">
+    <p style="opacity:.9;font-size:1.05rem">Welcome! Explore my work on macroeconomics, finance & inequality.</p>
+    <div class="social">
       <a href="mailto:fabio.stohler@uni-bonn.de" aria-label="Email"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/Fabio-Stohler" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/fabiostohler" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
     </div>
-  </section>
+  </header>
 
   <main class="container">
-    <!-- Research -->
-    <section id="Research" class="card" aria-labelledby="research-title">
-      <h2 id="research-title" class="section-title">Research</h2>
-      <div class="subsection-grid">
-        <!-- Working Papers Card -->
-        <div class="subsection-card">
-          <h3 class="subsection-title">Working Papers</h3>
-          <ul class="publications">
-            <li>
-              <h4>Can Public Debt crowd in Private Investment?<span class="coauthors">with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank" rel="noopener">Christian Bayer</a></span></h4>
-              <p>
-                <a href="#abstract1" onclick="toggleAbstract('abstract1'); return false;">Abstract</a> |
-                <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank" rel="noopener">DP 691 <i class="fa fa-external-link-alt"></i></a>
-              </p>
-              <div id="abstract1" class="abstract" hidden>
-                <p>If households self-select into a risky high-income state through investment, increased government debt can stimulate investment and improve welfare. In a heterogeneous agent endogenous growth model, government debt helps households smooth consumption and encourages investment in risky, high-return assets, crowding in aggregate growth. However, when debt becomes excessive, capital crowding out and distortionary taxation negate these benefits. Using a model calibrated to U.S. data, we show that this crowding-in effect suggests a higher optimal debt-to-GDP ratio than currently observed.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <!-- Ongoing Projects Card -->
-        <div class="subsection-card">
-          <h3 class="subsection-title">Ongoing Projects</h3>
-          <ul class="publications">
-            <li>
-              <h4>Generative Economic Modeling<span class="coauthors">with <a href="https://www.hannokase.com/" target="_blank" rel="noopener">Hanno Kase</a> & <a href="https://sites.google.com/view/matthias-rottner" target="_blank" rel="noopener">Matthias Rottner</a></span></h4>
-              <p>
-                <a href="#abstract2" onclick="toggleAbstract('abstract2'); return false;">Abstract</a> | Draft upon request
-              </p>
-              <div id="abstract2" class="abstract" hidden>
-                <p>We introduce a novel approach for solving quantitative economic models: generative economic modeling. Our method combines neural networks with conventional solution techniques. Specifically, we train neural networks on simplified versions of an economic model to generate approximations of the full model’s dynamic behavior. By relying on these less complex satellite models, we circumvent the curse of dimensionality and are able to employ well-established numerical methods. We demonstrate our approach on models with nonlinear dynamics and heterogeneous agents. Finally, we apply generative economic modeling to solve a high-dimensional HANK model with financial frictions.</p>
-              </div>
-            </li>
-            <li>
-              <h4>Distributional Impact of Asset Price Fluctuations</h4>
-              <p>
-                <a href="#abstract3" onclick="toggleAbstract('abstract3'); return false;">Abstract</a> | Draft upon request
-              </p>
-              <div id="abstract3" class="abstract" hidden>
-                <p>This paper studies how fluctuations in asset prices, driven by noise traders in segmented financial markets, affect the real economy and households across the income and wealth distribution. I show that these fluctuations help explain empirically observed portfolio choices, a fraction of the observed equity premium, and a small part of real fluctuations. Poorer households avoid risky assets because they rely on liquid and safe assets for self-insurance. Richer households require a premium of 0.8 percent per year to hold risky assets, which accounts for a fraction of the observed equity premium. In quantitative terms, a 10 percent increase in asset prices, which corresponds to a typical quarterly shock, raises aggregate output by 0.8 percent. Asset price shocks are redistributive because they directly benefit wealthy households, who own most assets, and also affect poorer households indirectly through general equilibrium effects such as changes in wages and prices.</p>
-              </div>
-            </li>
-            <li><h4>Information Content of Option Prices</h4></li>
-            <li><h4>Wealthy Seniors and the Equity Premium Puzzle</h4></li>
-            <li><h4>The Volatility Costs of Public Debt</h4></li>
-          </ul>
-        </div>
+
+    <!-- RESEARCH -->
+    <section id="research" class="section">
+      <h2 class="section-title">Research</h2>
+
+      <!-- Working Papers -->
+      <h3>Working Papers</h3>
+      <div class="tiles">
+        <article class="tile">
+          <h3>Can Public Debt crowd in Private Investment?</h3>
+          <span class="coauthors">with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank">Christian Bayer</a></span>
+          <p>
+            <a href="#abs1" onclick="toggleAbs('abs1');return false;">Abstract</a> |
+            <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank">DP&nbsp;691&nbsp;<i class="fa fa-external-link-alt"></i></a>
+          </p>
+          <p id="abs1" hidden>If households self-select into a risky high-income state through investment, increased government debt can stimulate investment and improve welfare…</p>
+        </article>
+      </div>
+
+      <!-- Ongoing Projects -->
+      <h3 style="margin-top:2rem">Ongoing Projects</h3>
+      <div class="tiles one-col">
+
+        <article class="tile">
+          <h3>Generative Economic Modeling</h3>
+          <span class="coauthors">with <a href="https://www.hannokase.com/" target="_blank">Hanno Kase</a> &amp; <a href="https://sites.google.com/view/matthias-rottner" target="_blank">Matthias Rottner</a></span>
+          <p>
+            <a href="#abs2" onclick="toggleAbs('abs2');return false;">Abstract</a> &nbsp;|&nbsp; Draft upon request
+          </p>
+          <p id="abs2" hidden>We introduce a novel approach for solving quantitative economic models: generative economic modeling…</p>
+        </article>
+
+        <article class="tile">
+          <h3>Distributional Impact of Asset Price Fluctuations</h3>
+          <p>
+            <a href="#abs3" onclick="toggleAbs('abs3');return false;">Abstract</a> &nbsp;|&nbsp; Draft upon request
+          </p>
+          <p id="abs3" hidden>This paper studies how fluctuations in asset prices, driven by noise traders in segmented financial markets, affect the real economy…</p>
+        </article>
+
+        <article class="tile">
+          <h3>Information Content of Option Prices</h3>
+        </article>
+
+        <article class="tile">
+          <h3>Wealthy Seniors and the Equity Premium Puzzle</h3>
+        </article>
+
+        <article class="tile">
+          <h3>The Volatility Costs of Public Debt</h3>
+        </article>
+
       </div>
     </section>
 
     <!-- CV -->
-    <section id="CV" class="subsection-card" aria-labelledby="cv-title">
-      <h2 id="cv-title" class="section-title">Curriculum Vitae</h2>
-      <address>
-        <a href="/resume/CV_Fabio_Stohler.pdf" class="btn" download>
-          <i class="fa fa-download" aria-hidden="true"></i>
-          Download CV
-        </a>
-      </address>
+    <section id="cv" class="section">
+      <h2 class="section-title">Curriculum Vitae</h2>
+      <a href="/resume/CV_Fabio_Stohler.pdf" class="btn" download>
+        <i class="fa fa-download" aria-hidden="true"></i> Download CV
+      </a>
     </section>
 
-    <!-- Contact -->
-    <section id="Contact" class="subsection-card" aria-labelledby="contact-title">
-      <h2 id="contact-title" class="section-title">Contact</h2>
-      <address>
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <address style="font-style:normal">
         Email: <span id="email"></span><br>
         Institute for Macroeconomics &amp; Econometrics<br>
         University of Bonn<br>
         Kaiserplatz 7–9, 53113 Bonn, Germany<br>
-        Office: <a href="tel:+492287362193">+49 228 73-62193</a>
+        Office: <a href="tel:+492287362193">+49&nbsp;228&nbsp;73-62193</a>
       </address>
     </section>
+
   </main>
 
   <footer>
-    <p>&copy; <time id="year" datetime="2025">2025</time> Fabio Stohler – University of Bonn | Last updated: <time id="lastUpdated" datetime="2025-07-07">July 7, 2025</time></p>
+    &copy; <time id="year"></time> Fabio Stohler – University of Bonn |
+    Last updated: <time id="lastUpdated"></time>
   </footer>
 
+  <!-- ---------- JS (tiny) ---------- -->
   <script>
-    function toggleAbstract(id) {
-      const el = document.getElementById(id);
-      el.hidden = !el.hidden;
-      return false;
-    }
-    (function() {
-      const user = 'fabio.stohler';
-      const domain = 'uni-bonn.de';
-      const link = document.createElement('a');
-      link.href = `mailto:${user}@${domain}`;
-      link.textContent = `${user}@${domain}`;
-      document.getElementById('email').appendChild(link);
-    })();
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const modDate = new Date(document.lastModified);
-    document.getElementById('lastUpdated').textContent = modDate.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
-  </script>
+    function toggleAbs(id){document.getElementById(id).hidden^=true;}
 
+    (function(){
+      const u='fabio.stohler',d='uni-bonn.de';
+      const a=document.createElement('a');
+      a.href=`mailto:${u}@${d}`;a.textContent=`${u}@${d}`;
+      document.getElementById('email').appendChild(a);
+    })();
+
+    document.getElementById('year').textContent=new Date().getFullYear();
+    document.getElementById('lastUpdated').textContent=
+      new Date(document.lastModified).toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
+  </script>
 </body>
 </html>

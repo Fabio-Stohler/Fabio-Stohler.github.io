@@ -14,7 +14,7 @@
   <style>
     :root {
       --clr-bg: #ffffff;
-      --clr-text: #1d1d1d;
+      --clr-text: #333333;
       --clr-primary: #2c3e50;
       --clr-accent: #2980b9;
       --clr-card-bg: #f7f9fa;
@@ -33,7 +33,7 @@
       scroll-behavior: smooth;
     }
     a { color: var(--clr-accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a:hover, a:focus { text-decoration: underline; outline: none; }
 
     /* Navbar */
     nav {
@@ -44,7 +44,7 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
     .nav-container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -56,7 +56,12 @@
       font-weight: 600;
       color: var(--clr-primary);
     }
-    .nav-links { list-style: none; display: flex; gap: var(--spacing); }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: var(--spacing);
+      margin: 0; padding: 0;
+    }
     .nav-links a { font-weight: 500; transition: color var(--transition); }
 
     /* Hero Section */
@@ -80,11 +85,10 @@
 
     /* Main Layout - One Column */
     .container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: -3rem auto 2rem;
       padding: 0 1rem;
     }
-    .container > section { margin-bottom: 2rem; }
 
     /* Cards */
     .card {
@@ -115,7 +119,7 @@
 
     /* Publications List */
     .publications li { margin-bottom: 1rem; }
-    .publications a:hover { color: var(--clr-primary); }
+    .publications a:hover, .publications a:focus { color: var(--clr-primary); }
 
     /* Contact */
     address { font-style: normal; line-height: 1.4; }
@@ -133,77 +137,81 @@
 </head>
 <body>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <div class="nav-container">
       <a href="#hero" class="nav-logo">Fabio Stohler</a>
       <ul class="nav-links">
         <li><a href="#WP">Working Papers</a></li>
         <li><a href="#Progress">Current Work</a></li>
         <li><a href="#Contact">Contact</a></li>
-        <li><a href="/resume/CV_Fabio_Stohler.pdf" target="_blank">CV <i class="fa fa-download"></i></a></li>
+        <li><a href="/resume/CV_Fabio_Stohler.pdf" target="_blank" rel="noopener">CV <i class="fa fa-download" aria-hidden="true"></i><span class="sr-only">Download CV</span></a></li>
       </ul>
     </div>
   </nav>
 
   <section id="hero">
-    <img src="images/photo.jpg" alt="Fabio Stohler" class="hero-photo">
+    <img src="images/photo.jpg" alt="Portrait of Fabio Stohler" class="hero-photo">
     <h1>Fabio Stohler</h1>
     <p>Ph.D. candidate in Economics, University of Bonn</p>
   </section>
 
   <main class="container">
     <!-- Working Papers -->
-    <section id="WP" class="card">
-      <h2 class="section-title">Working Papers</h2>
+    <section id="WP" class="card" aria-labelledby="wp-title">
+      <h2 id="wp-title" class="section-title">Working Papers</h2>
       <ul class="publications">
         <li>
-          <h3>Can Public Debt crowd in Private Investment? <em>with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank">Christian Bayer</a></em></h3>
+          <h3>Can Public Debt crowd in Private Investment? <em>with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank" rel="noopener">Christian Bayer</a></em></h3>
           <p>
-            <a href="#abstract1" onclick="toggleAbstract('abstract1')">Abstract</a> |
-            <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank">DP 691 <i class="fa fa-external-link-alt"></i></a>
+            <a href="#abstract1" onclick="toggleAbstract('abstract1'); return false;">Abstract</a> |
+            <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank" rel="noopener">DP 691 <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
           </p>
-          <div id="abstract1" style="display:none; margin-top:1rem;"><p>If households self-select into a risky high-income state through investment, government debt can crowd in private investment and enhance welfare...</p></div>
+          <div id="abstract1" class="abstract" hidden>
+            <p>If households self-select into a risky high-income state through investment, government debt can crowd in private investment and enhance welfare...</p>
+          </div>
         </li>
       </ul>
     </section>
 
     <!-- Current Work -->
-    <section id="Progress" class="card">
-      <h2 class="section-title">Current Work</h2>
+    <section id="Progress" class="card" aria-labelledby="cw-title">
+      <h2 id="cw-title" class="section-title">Current Work</h2>
       <ul>
-        <li><strong>Generative Economic Modeling</strong> | with <a href="https://www.hannokase.com/" target="_blank">Hanno Kase</a> & <a href="https://sites.google.com/view/matthias-rottner" target="_blank">Matthias Rottner</a></li>
+        <li><strong>Generative Economic Modeling</strong> &ndash; with <a href="https://www.hannokase.com/" target="_blank" rel="noopener">Hanno Kase</a> &amp; <a href="https://sites.google.com/view/matthias-rottner" target="_blank" rel="noopener">Matthias Rottner</a></li>
         <li><strong>The Volatility Costs of Public Debt</strong></li>
         <li><strong>Wealthy Seniors and the Equity Premium Puzzle</strong></li>
       </ul>
     </section>
 
     <!-- Contact -->
-    <section id="Contact" class="card">
-      <h2 class="section-title">Contact</h2>
+    <section id="Contact" class="card" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-title">Contact</h2>
       <address>
         Email: <a href="mailto:fabio.stohler@uni-bonn.de">fabio.stohler@uni-bonn.de</a><br>
-        Institute for Macroeconomics & Econometrics<br>
+        Institute for Macroeconomics &amp; Econometrics<br>
         University of Bonn<br>
         Kaiserplatz 7–9, 53113 Bonn, Germany<br>
-        Office: +49 228 73-62193
+        Office: <a href="tel:+492287362193">+49 228 73-62193</a>
       </address>
     </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Fabio Stohler – University of Bonn | Last updated: <span id="lastUpdated"></span>
+    <p>&copy; <time id="year" datetime="2025">2025</time> Fabio Stohler &ndash; University of Bonn | Last updated: <time id="lastUpdated" datetime="2025-07-07">July 7, 2025</time></p>
   </footer>
 
   <script>
     // Toggle abstract visibility
     function toggleAbstract(id) {
       const el = document.getElementById(id);
-      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+      const isHidden = el.hidden;
+      el.hidden = !isHidden;
+      return false;
     }
     // Dynamic footer dates
     document.getElementById('year').textContent = new Date().getFullYear();
     const modDate = new Date(document.lastModified);
-    document.getElementById('lastUpdated').textContent = modDate.toLocaleDateString('en-GB', { year: 'numeric', month: 'long' });
+    document.getElementById('lastUpdated').textContent = modDate.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
   </script>
 
 </body>

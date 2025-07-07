@@ -15,6 +15,7 @@
     :root {
       --clr-bg: #ffffff;
       --clr-text: #333333;
+      --clr-text-secondary: #555555;
       --clr-primary: #2c3e50;
       --clr-accent: #2980b9;
       --clr-card-bg: #f7f9fa;
@@ -34,6 +35,31 @@
     }
     a { color: var(--clr-accent); text-decoration: none; }
     a:hover, a:focus { text-decoration: underline; outline: none; }
+
+    /* Coauthors styling */
+    .coauthors {
+      display: block;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--clr-text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    /* Social Links in Hero */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .social-links a {
+      font-size: 1.5rem;
+      color: #fff;
+      transition: color var(--transition);
+    }
+    .social-links a:hover {
+      color: var(--clr-accent);
+    }
 
     /* Navbar */
     nav {
@@ -69,8 +95,8 @@
       background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
       color: #fff;
       text-align: center;
-      padding: 6rem 1rem 4rem;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      padding: 6rem 1rem 8rem;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
     }
     #hero .hero-photo {
       width: 240px; height: 240px;
@@ -87,7 +113,7 @@
     /* Main Layout - One Column */
     .container {
       max-width: 1000px;
-      margin: -4rem auto 2rem;
+      margin: 1rem auto 2rem;
       padding: 0 1rem;
     }
 
@@ -120,15 +146,18 @@
 
     /* Publications List */
     .publications li { margin-bottom: 1rem; }
-    .publications a:hover, .npublications a:focus { color: var(--clr-primary); }
 
     /* Remove bullets on lists in Working Papers & Current Work */
     #WP .publications,
-    #Progress ul {
+    #Progress .publications {
       list-style: none;
       margin: 0;
       padding-left: 0;
     }
+
+    /* Link hover styles */
+    .publications a:hover,
+    .publications a:focus { color: var(--clr-primary); }
 
     /* Contact */
     address { font-style: normal; line-height: 1.4; }
@@ -163,6 +192,11 @@
     <h1>Fabio Stohler</h1>
     <p>Ph.D. candidate in Economics, University of Bonn</p>
     <p class="welcome">Welcome to my site! Explore my research on macroeconomics, finance, and inequality. Scroll down to see my latest projects.</p>
+    <div class="social-links">
+      <a href="mailto:fabio.stohler@uni-bonn.de" aria-label="Email"><i class="fa fa-envelope"></i></a>
+      <a href="https://github.com/Fabio-Stohler" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+      <a href="https://linkedin.com/in/fabiostohler" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+    </div>
   </section>
 
   <main class="container">
@@ -171,7 +205,7 @@
       <h2 id="wp-title" class="section-title">Working Papers</h2>
       <ul class="publications">
         <li>
-          <h3>Can Public Debt crowd in Private Investment? <em>with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank" rel="noopener">Christian Bayer</a></em></h3>
+          <h3>Can Public Debt crowd in Private Investment?<span class="coauthors">with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank" rel="noopener">Christian Bayer</a></span></h3>
           <p>
             <a href="#abstract1" onclick="toggleAbstract('abstract1'); return false;">Abstract</a> |
             <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank" rel="noopener">DP 691 <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
@@ -186,28 +220,28 @@
     <!-- Current Work -->
     <section id="Progress" class="card" aria-labelledby="cw-title">
       <h2 id="cw-title" class="section-title">Current Work</h2>
-      <ul>
+      <ul class="publications">
         <li>
-          <strong>Generative Economic Modeling</strong> &ndash; with <a href="https://www.hannokase.com/" target="_blank" rel="noopener">Hanno Kase</a> &amp; <a href="https://sites.google.com/view/matthias-rottner" target="_blank" rel="noopener">Matthias Rottner</a></li>
+          <h3>Generative Economic Modeling<span class="coauthors">with <a href="https://www.hannokase.com/" target="_blank" rel="noopener">Hanno Kase</a> & <a href="https://sites.google.com/view/matthias-rottner" target="_blank" rel="noopener">Matthias Rottner</a></span></h3>
           <p>
-            <a href="#abstract2" onclick="toggleAbstract('abstract2'); return false;">Abstract</a>
+            <a href="#abstract2" onclick="toggleAbstract('abstract2'); return false;">Abstract</a> | Draft upon request
           </p>
           <div id="abstract2" class="abstract" hidden>
             <p>We introduce a novel approach for solving quantitative economic models: generative economic modeling. Our method combines neural networks with conventional solution techniques. Specifically, we train neural networks on simplified versions of an economic model to generate approximations of the full model’s dynamic behavior. By relying on these less complex satellite models, we circumvent the curse of dimensionality and are able to employ well-established numerical methods. We demonstrate our approach on models with nonlinear dynamics and heterogeneous agents. Finally, we apply generative economic modeling to solve a high-dimensional HANK model with financial frictions.</p>
           </div>
         </li>
         <li>
-          <strong>Distributional Impact of Asset Price Fluctuations</strong>
+          <h3>Distributional Impact of Asset Price Fluctuations</h3>
           <p>
-            <a href="#abstract3" onclick="toggleAbstract('abstract3'); return false;">Abstract</a>
+            <a href="#abstract3" onclick="toggleAbstract('abstract3'); return false;">Abstract</a> | Draft upon request
           </p>
-          <div id="abstract3" class="abstract" hidden>
+          <div id="#abstract3" class="abstract" hidden>
             <p>This paper studies how fluctuations in asset prices, driven by noise traders in segmented financial markets, affect the real economy and households across the income and wealth distribution. I show that these fluctuations help explain empirically observed portfolio choices, a fraction of the observed equity premium, and a small part of real fluctuations. Poorer households avoid risky assets because they rely on liquid and safe assets for self-insurance. Richer households require a premium of 0.8 percent per year to hold risky assets, which accounts for a fraction of the observed equity premium. In quantitative terms, a 10 percent increase in asset prices, which corresponds to a typical quarterly shock, raises aggregate output by 0.8 percent. Asset price shocks are redistributive because they directly benefit wealthy households, who own most assets, and also affect poorer households indirectly through general equilibrium effects such as changes in wages and prices.</p>
           </div>
         </li>
-        <li><strong>Information Content of Option Prices</strong></li>
-        <li><strong>Wealthy Seniors and the Equity Premium Puzzle</strong></li>
-        <li><strong>The Volatility Costs of Public Debt</strong></li>
+        <li><h3>Information Content of Option Prices</h3></li>
+        <li><h3>Wealthy Seniors and the Equity Premium Puzzle</h3></li>
+        <li><h3>The Volatility Costs of Public Debt</h3></li>
       </ul>
     </section>
 
@@ -215,7 +249,7 @@
     <section id="Contact" class="card" aria-labelledby="contact-title">
       <h2 id="contact-title" class="section-title">Contact</h2>
       <address>
-        Email: <a href="mailto:fabio.stohler@uni-bonn.de">fabio.stohler@uni-bonn.de</a><br>
+        Email: <span id="email"></span><br>
         Institute for Macroeconomics &amp; Econometrics<br>
         University of Bonn<br>
         Kaiserplatz 7–9, 53113 Bonn, Germany<br>
@@ -225,17 +259,25 @@
   </main>
 
   <footer>
-    <p>&copy; <time id="year" datetime="2025">2025</time> Fabio Stohler &ndash; University of Bonn | Last updated: <time id="lastUpdated" datetime="2025-07-07">July 7, 2025</time></p>
+    <p>&copy; <time id="year" datetime="2025">2025</time> Fabio Stohler – University of Bonn | Last updated: <time id="lastUpdated" datetime="2025-07-07">July 7, 2025</time></p>
   </footer>
 
   <script>
     // Toggle abstract visibility
     function toggleAbstract(id) {
       const el = document.getElementById(id);
-      const isHidden = el.hidden;
-      el.hidden = !isHidden;
+      el.hidden = !el.hidden;
       return false;
     }
+    // Obfuscate email to avoid scraping
+    (function() {
+      const user = 'fabio.stohler';
+      const domain = 'uni-bonn.de';
+      const link = document.createElement('a');
+      link.href = `mailto:${user}@${domain}`;
+      link.textContent = `${user}@${domain}`;
+      document.getElementById('email').appendChild(link);
+    })();
     // Dynamic footer dates
     document.getElementById('year').textContent = new Date().getFullYear();
     const modDate = new Date(document.lastModified);

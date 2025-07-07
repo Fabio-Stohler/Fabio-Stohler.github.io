@@ -40,7 +40,6 @@
     .subsection-title {
       font-size: 1.25rem;
       font-weight: 500;
-      margin-top: 1.5rem;
       margin-bottom: 0.75rem;
       border-bottom: 2px solid var(--clr-card-bg);
       padding-bottom: 0.25rem;
@@ -135,13 +134,43 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
       transition: transform var(--transition), box-shadow var(--transition);
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+    .card:not(#Research):hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    #Research:hover {
+      transform: none;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    /* Subsection Grid & Tiles */
+    .subsection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing);
+      margin-top: 1.5rem;
+    }
+    /* Force single-column in Research section */
+    #Research .subsection-grid {
+      grid-template-columns: 1fr;
+    }
+    .subsection-card {
+      background: var(--clr-card-bg);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .subsection-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
 
     /* Section Titles */
     .section-title {
       font-size: 1.75rem;
       font-weight: 600;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
       position: relative;
       display: inline-block;
     }
@@ -156,8 +185,6 @@
 
     /* Publications List */
     .publications li { margin-bottom: 1rem; }
-
-    /* Link hover styles */
     .publications a:hover,
     .publications a:focus { color: var(--clr-primary); }
 
@@ -204,45 +231,50 @@
     <!-- Research -->
     <section id="Research" class="card" aria-labelledby="research-title">
       <h2 id="research-title" class="section-title">Research</h2>
-      
-      <h3 class="subsection-title">Working Papers</h3>
-      <ul class="publications">
-        <li>
-          <h4>Can Public Debt crowd in Private Investment?<span class="coauthors">with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank" rel="noopener">Christian Bayer</a></span></h4>
-          <p>
-            <a href="#abstract1" onclick="toggleAbstract('abstract1'); return false;">Abstract</a> |
-            <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank" rel="noopener">DP 691 <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
-          </p>
-          <div id="abstract1" class="abstract" hidden>
-            <p>If households self-select into a risky high-income state through investment, increased government debt can stimulate investment and improve welfare. In a heterogeneous agent endogenous growth model, government debt helps households smooth consumption and encourages investment in risky, high-return assets, crowding in aggregate growth. However, when debt becomes excessive, capital crowding out and distortionary taxation negate these benefits. Using a model calibrated to U.S. data, we show that this crowding-in effect suggests a higher optimal debt-to-GDP ratio than currently observed.</p>
-          </div>
-        </li>
-      </ul>
+      <div class="subsection-grid">
+        <div class="subsection-card">
+          <h3 class="subsection-title">Working Papers</h3>
+          <ul class="publications">
+            <li>
+              <h4>Can Public Debt crowd in Private Investment?<span class="coauthors">with <a href="https://www.wiwi.uni-bonn.de/bayer/" target="_blank" rel="noopener">Christian Bayer</a></span></h4>
+              <p>
+                <a href="#abstract1" onclick="toggleAbstract('abstract1'); return false;">Abstract</a> |
+                <a href="https://www.crctr224.de/research/discussion-papers/archive/dp691" target="_blank" rel="noopener">DP 691 <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
+              </p>
+              <div id="abstract1" class="abstract" hidden>
+                <p>If households self-select into a risky high-income state through investment, increased government debt can stimulate investment and improve welfare. In a heterogeneous agent endogenous growth model, government debt helps households smooth consumption and encourages investment in risky, high-return assets, crowding in aggregate growth. However, when debt becomes excessive, capital crowding out and distortionary taxation negate these benefits. Using a model calibrated to U.S. data, we show that this crowding-in effect suggests a higher optimal debt-to-GDP ratio than currently observed.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-      <h3 class="subsection-title">Ongoing Projects</h3>
-      <ul class="publications">
-        <li>
-          <h4>Generative Economic Modeling<span class="coauthors">with <a href="https://www.hannokase.com/" target="_blank" rel="noopener">Hanno Kase</a> & <a href="https://sites.google.com/view/matthias-rottner" target="_blank" rel="noopener">Matthias Rottner</a></span></h4>
-          <p>
-            <a href="#abstract2" onclick="toggleAbstract('abstract2'); return false;">Abstract</a> | Draft upon request
-          </p>
-          <div id="abstract2" class="abstract" hidden>
-            <p>We introduce a novel approach for solving quantitative economic models: generative economic modeling. Our method combines neural networks with conventional solution techniques. Specifically, we train neural networks on simplified versions of an economic model to generate approximations of the full model’s dynamic behavior. By relying on these less complex satellite models, we circumvent the curse of dimensionality and are able to employ well-established numerical methods. We demonstrate our approach on models with nonlinear dynamics and heterogeneous agents. Finally, we apply generative economic modeling to solve a high-dimensional HANK model with financial frictions.</p>
-          </div>
-        </li>
-        <li>
-          <h3>Distributional Impact of Asset Price Fluctuations</h3>
-          <p>
-            <a href="#abstract3" onclick="toggleAbstract('abstract3'); return false;">Abstract</a> | Draft upon request
-          </p>
-          <div id="abstract3" class="abstract" hidden>
-            <p>This paper studies how fluctuations in asset prices, driven by noise traders in segmented financial markets, affect the real economy and households across the income and wealth distribution. I show that these fluctuations help explain empirically observed portfolio choices, a fraction of the observed equity premium, and a small part of real fluctuations. Poorer households avoid risky assets because they rely on liquid and safe assets for self-insurance. Richer households require a premium of 0.8 percent per year to hold risky assets, which accounts for a fraction of the observed equity premium. In quantitative terms, a 10 percent increase in asset prices, which corresponds to a typical quarterly shock, raises aggregate output by 0.8 percent. Asset price shocks are redistributive because they directly benefit wealthy households, who own most assets, and also affect poorer households indirectly through general equilibrium effects such as changes in wages and prices.</p>
-          </div>
-        </li>
-        <li><h4>Information Content of Option Prices</h4></li>
-        <li><h4>Wealthy Seniors and the Equity Premium Puzzle</h4></li>
-        <li><h4>The Volatility Costs of Public Debt</h4></li>
-      </ul>
+        <div class="subsection-card">
+          <h3 class="subsection-title">Ongoing Projects</h3>
+          <ul class="publications">
+            <li>
+              <h4>Generative Economic Modeling<span class="coauthors">with <a href="https://www.hannokase.com/" target="_blank" rel="noopener">Hanno Kase</a> & <a href="https://sites.google.com/view/matthias-rottner" target="_blank" rel="noopener">Matthias Rottner</a></span></h4>
+              <p>
+                <a href="#abstract2" onclick="toggleAbstract('abstract2'); return false;">Abstract</a> | Draft upon request
+              </p>
+              <div id="abstract2" class="abstract" hidden>
+                <p>We introduce a novel approach for solving quantitative economic models: generative economic modeling. Our method combines neural networks with conventional solution techniques. Specifically, we train neural networks on simplified versions of an economic model to generate approximations of the full model’s dynamic behavior. By relying on these less complex satellite models, we circumvent the curse of dimensionality and are able to employ well-established numerical methods. We demonstrate our approach on models with nonlinear dynamics and heterogeneous agents. Finally, we apply generative economic modeling to solve a high-dimensional HANK model with financial frictions.</p>
+              </div>
+            </li>
+            <li>
+              <h4>Distributional Impact of Asset Price Fluctuations</h4>
+              <p>
+                <a href="#abstract3" onclick="toggleAbstract('abstract3'); return false;">Abstract</a> | Draft upon request
+              </p>
+              <div id="abstract3" class="abstract" hidden>
+                <p>This paper studies how fluctuations in asset prices, driven by noise traders in segmented financial markets, affect the real economy and households across the income and wealth distribution. I show that these fluctuations help explain empirically observed portfolio choices, a fraction of the observed equity premium, and a small part of real fluctuations. Poorer households avoid risky assets because they rely on liquid and safe assets for self-insurance. Richer households require a premium of 0.8 percent per year to hold risky assets, which accounts for a fraction of the observed equity premium. In quantitative terms, a 10 percent increase in asset prices, which corresponds to a typical quarterly shock, raises aggregate output by 0.8 percent. Asset price shocks are redistributive because they directly benefit wealthy households, who own most assets, and also affect poorer households indirectly through general equilibrium effects such as changes in wages and prices.</p>
+              </div>
+            </li>
+            <li><h4>Information Content of Option Prices</h4></li>
+            <li><h4>Wealthy Seniors and the Equity Premium Puzzle</h4></li>
+            <li><h4>The Volatility Costs of Public Debt</h4></li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <!-- Contact -->

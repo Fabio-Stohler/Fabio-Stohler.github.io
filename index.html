@@ -45,6 +45,33 @@
     /* Enlarged slightly */
     .nav-links a{font-weight:500;font-size:1.05rem}
 
+    /* ---------- BURGER ---------- */
+    .burger{
+      display:none; /* shown on small screens */
+      flex-direction:column;
+      justify-content:space-between;
+      width:1.75rem;
+      height:1.25rem;
+      background:transparent;
+      border:0;
+      cursor:pointer;
+      outline:0;
+    }
+    .burger span{
+      display:block;
+      width:100%;
+      height:2px;
+      background:var(--primary);
+      border-radius:2px;
+      transition:transform .3s,opacity .3s;
+    }
+
+    /* Drawer animation when nav is open */
+    nav.open .nav-links{transform:translateX(0)}
+    nav.open .burger span:nth-child(1){transform:translateY(.45rem) rotate(45deg)}
+    nav.open .burger span:nth-child(2){opacity:0}
+    nav.open .burger span:nth-child(3){transform:translateY(-.45rem) rotate(-45deg)}
+
     /* ---------- HERO ---------- */
     #hero{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;text-align:center;padding:5rem 1rem 6rem}
     /* Enlarged slightly */
@@ -90,8 +117,19 @@
       /* keep proportionally larger for small screens too */
       #hero h1{font-size:2.25rem}
       .hero-photo{width:160px;height:160px}
-      nav .container{flex-direction:column;height:auto}
-      .nav-links{margin-top:.5rem}
+      
+      /* nav adjustments */
+      .burger{display:flex;margin-left:auto}
+      nav .container{flex-wrap:nowrap;height:3.5rem}
+      .nav-links{
+        position:fixed;top:3.5rem;right:0;
+        flex-direction:column;align-items:flex-start;
+        background:var(--bg);width:70%;max-width:250px;
+        padding:var(--sp) 1.25rem;gap:1rem;
+        height:calc(100vh - 3.5rem);
+        box-shadow:var(--hover-shadow);
+        transform:translateX(100%);transition:transform .3s ease;
+      }
     }
   </style>
 </head>
@@ -101,6 +139,10 @@
   <nav>
     <div class="container">
       <a href="#hero" class="logo">Fabio Stohler</a>
+      <!-- Burger button added -->
+      <button class="burger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
       <ul class="nav-links">
         <li><a href="#research">Research</a></li>
         <li><a href="#cv">CV</a></li>
@@ -114,7 +156,7 @@
     <img src="images/photo.jpg" alt="Portrait of Fabio Stohler" class="hero-photo">
     <h1>Fabio Stohler</h1>
     <p>Ph.D. candidate in Economics, University of Bonn</p>
-    <p style="opacity:.9;font-size:1.05rem">Welcome! Explore my work on macroeconomics, finance & inequality.</p>
+    <p style="opacity:.9;font-size:1.05rem">Welcome! Explore my work on macroeconomics, finance &amp; inequality.</p>
     <div class="social">
       <a href="mailto:fabio.stohler@uni-bonn.de" aria-label="Email"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/Fabio-Stohler" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -222,6 +264,9 @@
     document.getElementById('year').textContent=new Date().getFullYear();
     document.getElementById('lastUpdated').textContent=
       new Date(document.lastModified).toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
+    document.querySelector('.burger').addEventListener('click',()=>{
+      document.querySelector('nav').classList.toggle('open');
+    });
   </script>
 </body>
 </html>

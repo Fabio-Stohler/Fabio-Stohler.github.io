@@ -85,7 +85,27 @@
 
     /* space between the CV heading and the button */
     #cv address{
-      margin-top:1.0rem;   /* adjust value to taste */
+      margin-top:1.0rem;
+    }
+
+    /* ---------- Added "CV" on top of the icon ---------- */
+    .download-cv{
+      position:relative;
+    }
+    .download-cv .cv-badge{
+      position:absolute;
+      top: 14px;                           /* tweak these two numbers        */
+      left:2px;                          /* to sit nicely in your icon     */
+      font-size:.2em;                   /* tiny relative to icon size     */
+      font-weight:700;                   /* bold so it stays readable      */
+      color:var(--accent);               /* same blue as hero gradient     */
+      pointer-events:none;               /* click goes through to the link */
+    }
+
+    /* adjust icon size */
+    .download-cv i.fa-file-lines{
+     font-size:0.95em;   /* ↓ 15 % compared with the link’s base size */
+      line-height:1;      /* keeps it vertically centred */
     }
 
     /* ---------- TILE GRID ---------- */
@@ -164,6 +184,13 @@
     <p style="opacity:.9;font-size:1.05rem">Welcome! Explore my work on macroeconomics, finance &amp; inequality.</p>
     <div class="social">
       <a href="mailto:fabio.stohler@uni-bonn.de" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="/resume/CV_Fabio_Stohler.pdf"
+        download
+        aria-label="Download CV"
+        class="download-cv">
+        <i class="fas fa-file-lines"></i>
+        <span class="cv-badge">CV</span>
+      </a>
       <a href="https://github.com/Fabio-Stohler" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/fabiostohler" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
     </div>

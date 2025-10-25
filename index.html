@@ -157,6 +157,9 @@
         transform:translateX(100%);transition:transform .3s ease;
       }
     }
+
+    #job-market-paper { scroll-margin-top: 60px }
+    html { scroll-behavior: smooth }
   </style>
 </head>
 <body>
@@ -170,7 +173,7 @@
       </button>
       <ul class="nav-links">
         <li><a href="#research">Research</a></li>
-        <li><a href="#Job Market Paper">Job Market Paper</a></li>
+        <li><a href="#job-market-paper">Job Market Paper</a></li>
         <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -206,7 +209,7 @@
       <h2 class="section-title">Research</h2>
 
       <!-- Job Market Paper -->
-      <h3>Job Market Paper</h3>
+      <h3 id="job-market-paper" tabindex="-1">Job Market Paper</h3>
       <div class="tiles">
         <article class="tile">
           <h3>Nonfundamental Asset Price Fluctuations and the Distributional Origins of Asset Premia</h3>

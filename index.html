@@ -73,7 +73,17 @@
 
   <!-- HERO -->
   <header id="hero">
-    <img src="images/picture.JPG" alt="Portrait of Fabio Stohler" class="hero-photo" loading="lazy">
+    <img
+      src="images/picture-400.jpg"
+      srcset="images/picture-400.jpg 1x, images/picture-800.jpg 2x"
+      alt="Portrait of Fabio Stohler"
+      class="hero-photo"
+      width="200"
+      height="200"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    >
     <h1>Fabio Stohler</h1>
     <p>Welcome! I am a Ph.D. candidate in Economics at the University of Bonn</p>
     <p style="opacity:.9;font-size:1.05rem">My research focuses on Macroeconomics, Finance, and Inequality.</p>

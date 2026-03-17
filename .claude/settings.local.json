@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod +x \"c:/Users/fabio/Proton Drive/fabio.stohler/My files/Work/Website/.git/hooks/pre-commit\")"
+    ]
+  }
+}
